@@ -45,7 +45,7 @@ def Attendance(args):
 
     while True:
         # change val to change timer
-        if(t.perf_counter_ns()-timer > .1*(60*(10**9))):
+        if(t.perf_counter_ns()-timer > .25*(60*(10**9))):
             break
 
         TempDict = []
@@ -148,11 +148,11 @@ def Attendance(args):
         elif (14*60+30 <= S < 15*60+20):
             return 6
         elif (15*60+30 <= S < 16*60+20):
-            return 6
-        elif (16*60+20 <= S < 17*60+10):
-            return 6
-        else:
             return 7
+        elif (16*60+20 <= S < 17*60+10):
+            return 8
+        else:
+            return 99
 
 
 
