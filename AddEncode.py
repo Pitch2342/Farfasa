@@ -12,7 +12,7 @@
 # ----------------------------------------------------------------------------
 
 from imutils import paths
-import Farfasa as Farfasa
+import farfasa as Farfasa
 import argparse
 import pickle
 import cv2
@@ -58,10 +58,10 @@ for (i, imagePath) in enumerate(imagePaths):
         rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
         print("{} loaded at {} . now detecting face".format(i + 1, (time.perf_counter()-T)))
         # Detect the (x, y)-coordinates of the bounding boxes corresponding to each face in the input image
-        boxes = Farfasa.faceLocations(rgb, model=args["detection_method"])
+        boxes = farfasa.faceLocations(rgb, model=args["detection_method"])
         print("{} detected at {} . now encoding".format(i+1, (time.perf_counter()-T)))
         # Compute the facial embedding for the face
-        encodings = Farfasa.faceEncodings(rgb, boxes)
+        encodings = farfasa.faceEncodings(rgb, boxes)
         print("encoding {} finished at {}".format(i+1, (time.perf_counter()-T)))
         # Loop over the encodings
         for encoding in encodings:

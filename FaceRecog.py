@@ -6,7 +6,7 @@
 
 import cv2
 import numpy as np
-import Farfasa as Farfasa
+import farfasa as Farfasa
 import argparse
 import imutils
 import pickle
@@ -61,13 +61,13 @@ def Attendance(args):
         # Only process every other frame of video to save time
         if process_this_frame:
             # Find all the faces and face encodings in the current frame of video
-            face_locations = Farfasa.faceLocations(rgb_small_frame)
-            face_encodings = Farfasa.faceEncodings(rgb_small_frame, face_locations)
+            face_locations = farfasa.faceLocations(rgb_small_frame)
+            face_encodings = farfasa.faceEncodings(rgb_small_frame, face_locations)
 
             face_names = []
             for face_encoding in face_encodings:
                 # See if the face is a match for the known face(s)
-                matches = Farfasa.compareFaces(known_face_encodings, face_encoding)
+                matches = farfasa.compareFaces(known_face_encodings, face_encoding)
                 name = "Unknown"
 
                 # # If a match was found in known_face_encodings, just use the first one.
@@ -76,7 +76,7 @@ def Attendance(args):
                 #     name = known_face_names[first_match_index]
 
                 # Or instead, use the known face with the smallest distance to the new face
-                face_distances = Farfasa.faceDist(known_face_encodings, face_encoding)
+                face_distances = farfasa.faceDist(known_face_encodings, face_encoding)
                 best_match_index = np.argmin(face_distances)
                 if matches[best_match_index]:
                     name = known_face_names[best_match_index]
