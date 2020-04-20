@@ -12,7 +12,7 @@
 # ----------------------------------------------------------------------------
 
 from imutils import paths
-import farfasa as Farfasa
+import farfasa as farfasa
 import argparse
 import pickle
 import cv2

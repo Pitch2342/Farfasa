@@ -6,7 +6,7 @@
 
 import cv2
 import numpy as np
-import farfasa as Farfasa
+import farfasa as farfasa
 import argparse
 import imutils
 import pickle
