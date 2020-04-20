@@ -83,7 +83,7 @@ def folderImages(folder):
 
 
 def printing(file, location):
-    # Print the names of recognized people
+    # Print the locations of detected faces
 
     # PARAMETERS
     # file          file where person was recognized
